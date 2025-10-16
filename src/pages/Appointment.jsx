@@ -541,7 +541,6 @@ Please confirm this appointment. Thank you!`
                       <div className="space-y-2 text-sm text-gray-600">
                         <p><strong>Phone:</strong> +91 88008 33411</p>
                         <p><strong>Email:</strong> info@aimanhealth.com</p>
-                        <p><strong>Hours:</strong> Monday - Saturday, 9:00 AM - 9:00 PM</p>
                       </div>
                     </div>
                   </div>

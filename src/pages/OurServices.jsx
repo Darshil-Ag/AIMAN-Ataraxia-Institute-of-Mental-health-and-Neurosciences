@@ -4,9 +4,6 @@ import {
   Heart, 
   Brain, 
   Baby, 
-  Activity, 
-  Eye, 
-  Bone, 
   Zap, 
   Shield,
   ArrowRight,
@@ -15,8 +12,7 @@ import {
   Phone,
   CheckCircle,
   MapPin,
-  Building,
-  AlertTriangle
+  Building
 } from 'lucide-react'
 import logo from '../photo/logo.png'
 
@@ -33,25 +29,8 @@ const OurServices = () => {
 
   const services = [
     {
-      id: 'psychiatry-services',
-      name: 'Psychiatry Services',
-      category: 'medical',
-      icon: Brain,
-      description: 'Comprehensive psychiatric care for mental health conditions including mood disorders, anxiety, psychosis, and other psychiatric conditions.',
-      services: [
-        'Psychiatric Evaluation',
-        'Medication Management',
-        'Psychotherapy',
-        'Crisis Intervention',
-        'Treatment Planning'
-      ],
-      availability: 'Mon-Fri 9AM-6PM',
-      color: 'from-blue-600 to-indigo-600',
-      image: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
-    },
-    {
       id: 'opd-services',
-      name: 'OPD Services',
+      name: 'OPD (Outpatient Department) Services',
       category: 'medical',
       icon: Users,
       description: 'Outpatient consultations for mental health assessments, therapy sessions, and follow-up care.',
@@ -68,7 +47,7 @@ const OurServices = () => {
     },
     {
       id: 'ipd-services',
-      name: 'IPD Services',
+      name: 'IPD (Inpatient Department) Services',
       category: 'medical',
       icon: Building,
       description: 'Inpatient mental health care with 24/7 monitoring and intensive therapeutic interventions.',
@@ -85,7 +64,7 @@ const OurServices = () => {
     },
     {
       id: 'emergency-mental-health',
-      name: 'Emergency Services',
+      name: '24/7 Emergency Mental Health Services',
       category: 'emergency',
       icon: Zap,
       description: '24/7 emergency mental health services for crisis situations and urgent psychiatric care.',
@@ -102,7 +81,7 @@ const OurServices = () => {
     },
     {
       id: 'clinical-psychology',
-      name: 'Clinical Psychology',
+      name: 'Clinical Psychology and Therapy Services',
       category: 'specialty',
       icon: Heart,
       description: 'Psychological assessment, therapy, and counseling services for various mental health conditions.',
@@ -136,7 +115,7 @@ const OurServices = () => {
     },
     {
       id: 'deaddiction-rehab',
-      name: 'Deaddiction Services',
+      name: 'De-addiction and Rehabilitation Services',
       category: 'specialty',
       icon: Shield,
       description: 'Comprehensive addiction treatment and rehabilitation programs for substance abuse recovery.',
@@ -153,7 +132,7 @@ const OurServices = () => {
     },
     {
       id: 'child-adolescent',
-      name: 'Child Services',
+      name: 'Child and Adolescent Mental Health Services',
       category: 'specialty',
       icon: Baby,
       description: 'Specialized mental health services for children and adolescents with developmental and behavioral concerns.',
@@ -170,7 +149,7 @@ const OurServices = () => {
     },
     {
       id: 'geriatric-mental-health',
-      name: 'Geriatric Services',
+      name: 'Geriatric Mental Health Services',
       category: 'specialty',
       icon: Users,
       description: 'Mental health services for elderly patients dealing with age-related mental health conditions.',
@@ -187,7 +166,7 @@ const OurServices = () => {
     },
     {
       id: 'womens-mental-health',
-      name: 'Women Services',
+      name: 'Women\'s Mental Health Services',
       category: 'specialty',
       icon: Heart,
       description: 'Specialized mental health services for women addressing gender-specific mental health concerns.',
@@ -270,26 +249,6 @@ const OurServices = () => {
         </div>
       </section>
 
-      {/* Category Filter */}
-      <section className="py-8 bg-white border-b">
-        <div className="container-custom">
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-200 ${
-                  selectedCategory === category.id
-                    ? 'bg-primary-600 text-white shadow-lg'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                {category.name}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Services Grid */}
       <section className="section-padding bg-primary-100">
@@ -302,15 +261,15 @@ const OurServices = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              {selectedCategory === 'all' ? 'All Mental Health Services' : categories.find(c => c.id === selectedCategory)?.name}
+              All Mental Health Services
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {filteredServices.length} mental health service{filteredServices.length !== 1 ? 's' : ''} available
+              {services.length} mental health service{services.length !== 1 ? 's' : ''} available
             </p>
           </motion.div>
 
           <div className="space-y-8">
-            {filteredServices.map((service, index) => (
+            {services.map((service, index) => (
               <motion.div
                 key={service.id}
                 initial={{ opacity: 0, y: 30 }}
@@ -389,17 +348,12 @@ const OurServices = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: CheckCircle,
                 title: 'Expert Specialists',
                 description: 'Board-certified doctors with years of experience in their respective fields'
-              },
-              {
-                icon: Shield,
-                title: 'Advanced Technology',
-                description: 'State-of-the-art equipment and cutting-edge treatment methods'
               },
               {
                 icon: Clock,

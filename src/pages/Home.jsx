@@ -13,8 +13,8 @@ import {
   Stethoscope,
   Brain,
   Baby,
-    Activity,
-    Building
+  Activity,
+  Building
 } from 'lucide-react'
   import groupPhoto from '../photo/group photo.jpg'
   import aditya from '../photo/aditya.jpg'
@@ -27,13 +27,6 @@ import sangeetha from '../photo/sangeetha.jpg'
 const Home = () => {
 
   const specialties = [
-    {
-      icon: Brain,
-      title: 'Neurology Services',
-      description: 'Comprehensive neurological care for brain, spinal cord, and nervous system disorders',
-      color: 'from-blue-600 to-indigo-600',
-      link: '/services/neurology'
-    },
     {
       icon: Users,
       title: 'OPD (Outpatient Department) Services',
@@ -56,18 +49,25 @@ const Home = () => {
       link: '/services/emergency-mental-health'
     },
     {
-      icon: Shield,
-      title: 'De-addiction and Rehabilitation Services',
-      description: 'Comprehensive substance abuse treatment and rehabilitation programs',
-      color: 'from-purple-500 to-indigo-500',
-      link: '/services/deaddiction-rehab'
-    },
-    {
       icon: Brain,
       title: 'Clinical Psychology and Therapy Services',
       description: 'Comprehensive therapeutic approaches including CBT, DBT, and trauma counseling',
       color: 'from-indigo-500 to-purple-500',
       link: '/services/clinical-psychology'
+    },
+    {
+      icon: Brain,
+      title: 'Neurology Services',
+      description: 'Comprehensive neurological care for brain, spinal cord, and nervous system disorders',
+      color: 'from-blue-600 to-indigo-600',
+      link: '/services/neurology'
+    },
+    {
+      icon: Shield,
+      title: 'De-addiction and Rehabilitation Services',
+      description: 'Comprehensive substance abuse treatment and rehabilitation programs',
+      color: 'from-purple-500 to-indigo-500',
+      link: '/services/deaddiction-rehab'
     },
     {
       icon: Baby,
@@ -79,7 +79,7 @@ const Home = () => {
     {
       icon: Heart,
       title: 'Women\'s Mental Health Services',
-      description: 'Comprehensive mental health services addressing the unique needs of women',
+      description: 'Specialized mental health services for women addressing gender-specific concerns',
       color: 'from-pink-600 to-purple-600',
       link: '/services/womens-mental-health'
     }
@@ -204,7 +204,7 @@ const Home = () => {
             className="text-center mb-16"
           >
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 sm:mb-4">
-              Our Specialties
+              Our Services
             </h2>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
               Comprehensive medical care across multiple specialties, 

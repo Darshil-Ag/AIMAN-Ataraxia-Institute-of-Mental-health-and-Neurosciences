@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useData } from '../contexts/DataContext'
 import { 
-  Search, 
-  Filter, 
   Calendar, 
   User, 
   Clock, 
@@ -11,20 +9,13 @@ import {
   Heart,
   Brain,
   Baby,
-  Activity,
-  Eye,
-  Zap,
-  Shield,
   Tag,
-  BookOpen,
   TrendingUp
 } from 'lucide-react'
 import logo from '../photo/logo.png'
 
 const Blog = () => {
   const { blogs, addNewsletterSubscriber } = useData()
-  const [selectedCategory, setSelectedCategory] = useState('all')
-  const [searchTerm, setSearchTerm] = useState('')
   const [email, setEmail] = useState('')
   const [isSubscribed, setIsSubscribed] = useState(false)
 
@@ -42,13 +33,7 @@ const Blog = () => {
   // Only show published blogs to public
   const publishedBlogs = blogs.filter(blog => blog.published)
 
-  const filteredPosts = publishedBlogs.filter(post => {
-    const matchesCategory = selectedCategory === 'all' || 
-      post.category.toLowerCase().replace(/\s+/g, '-') === selectedCategory
-    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
-    return matchesCategory && matchesSearch
-  })
+  const filteredPosts = publishedBlogs
 
   const featuredPosts = filteredPosts.slice(0, 2) // Show first 2 as featured
   const regularPosts = filteredPosts.slice(2) // Rest as regular
@@ -101,11 +86,11 @@ const Blog = () => {
       </section>
 
       {/* Search and Filter Section */}
-      <section className="py-8 bg-white border-b">
+      {/* <section className="py-8 bg-white border-b">
         <div className="container-custom">
           <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
             {/* Search Bar */}
-            <div className="relative flex-1 max-w-md">
+            {/* <div className="relative flex-1 max-w-md">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="text"
@@ -117,7 +102,7 @@ const Blog = () => {
             </div>
 
             {/* Category Filter */}
-            <div className="flex flex-wrap gap-2">
+            {/* <div className="flex flex-wrap gap-2">
               {categories.map((category) => (
                 <button
                   key={category.id}
@@ -134,10 +119,10 @@ const Blog = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Featured Articles */}
-      {featuredPosts.length > 0 && (
+      {/* {featuredPosts.length > 0 && (
         <section className="section-padding bg-primary-100">
           <div className="container-custom">
             <motion.div
@@ -214,7 +199,7 @@ const Blog = () => {
             </div>
           </div>
         </section>
-      )}
+      )} */}
 
 
       {/* Newsletter Signup */}

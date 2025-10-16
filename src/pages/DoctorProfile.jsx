@@ -60,7 +60,7 @@ const DoctorProfile = () => {
         'Award for excellence in patient care',
         'Mental health awareness campaign leader'
       ],
-      languages: ['English', 'Hindi', 'Punjabi'],
+      languages: ['English', 'Hindi'],
       bio: 'Dr. Piyush Verma is a dedicated psychiatrist with over 11 years of experience in mental health care. He completed his medical education from prestigious institutions and has been actively involved in research and medical education. His approach combines evidence-based treatments with compassionate care, focusing on holistic mental health recovery.',
       awards: [
         'Best Psychiatrist Award 2023',
@@ -104,7 +104,7 @@ const DoctorProfile = () => {
         'Conference presentations on women\'s mental health',
         'Patient satisfaction excellence award'
       ],
-      languages: ['English', 'Hindi', 'Rajasthani'],
+      languages: ['English', 'Hindi'],
       bio: 'Dr. Sangeeta Hatila brings 8 years of comprehensive psychiatric experience with a focus on women\'s mental health and academic excellence. Her background in medical education enhances her ability to provide both clinical care and patient education.',
       awards: [
         'Academic Excellence Award',
@@ -148,7 +148,7 @@ const DoctorProfile = () => {
         'Academic research contributions',
         'Mental health advocacy work'
       ],
-      languages: ['English', 'Hindi', 'Delhi Dialect'],
+      languages: ['English', 'Hindi'],
       bio: 'Dr. Aditya Sharma is a consultant psychiatrist with a strong foundation in clinical psychiatry and mental health advocacy. His experience at IHBAS Delhi has equipped him with specialized knowledge in treating diverse patient populations.',
       awards: [
         'Clinical Excellence Award',
@@ -192,7 +192,7 @@ const DoctorProfile = () => {
         'Extensive experience in stroke management',
         'Mentor to numerous neurologists'
       ],
-      languages: ['English', 'Hindi', 'Punjabi'],
+      languages: ['English', 'Hindi'],
       bio: 'Dr. Kiran Bala is a distinguished neurologist with over three decades of experience. Her expertise spans across various neurological conditions, with particular excellence in stroke management and neurodegenerative diseases.',
       awards: [
         'Lifetime Achievement Award in Neurology',
@@ -236,7 +236,7 @@ const DoctorProfile = () => {
         'Integrative care approach',
         'Safe healing environment creation'
       ],
-      languages: ['English', 'Hindi', 'Awadhi'],
+      languages: ['English', 'Hindi'],
       bio: 'Miss Akshita Shukla is a dedicated clinical psychologist committed to creating safe spaces for healing. Her approach combines psychological assessment with tailored therapeutic interventions for comprehensive mental health care.',
       awards: [
         'Clinical Psychology Excellence Award',
@@ -280,7 +280,7 @@ const DoctorProfile = () => {
         'All age group experience',
         'Compassionate care approach'
       ],
-      languages: ['English', 'Hindi', 'Kashmiri'],
+      languages: ['English', 'Hindi'],
       bio: 'Miss Keshav Sharma is a compassionate clinical psychologist with specialized expertise in grief counseling and psycho-oncology. Her approach focuses on providing emotional support across all age groups.',
       awards: [
         'Grief Counseling Excellence Award',
@@ -418,7 +418,7 @@ const DoctorProfile = () => {
               </motion.div>
 
               {/* Specializations */}
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -436,10 +436,10 @@ const DoctorProfile = () => {
                     </div>
                   ))}
                 </div>
-              </motion.div>
+              </motion.div> */}
 
               {/* Achievements */}
-              {doctor.achievements && doctor.achievements.length > 0 && (
+              {/* {doctor.achievements && doctor.achievements.length > 0 && (
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -460,10 +460,10 @@ const DoctorProfile = () => {
                     ))}
                   </ul>
                 </motion.div>
-              )}
+              )} */}
 
               {/* Publications */}
-              {doctor.publications && doctor.publications.length > 0 && (
+              {/* {doctor.publications && doctor.publications.length > 0 && (
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -484,13 +484,13 @@ const DoctorProfile = () => {
                     ))}
                   </ul>
                 </motion.div>
-              )}
+              )} */}
             </div>
 
             {/* Sidebar */}
             <div className="space-y-6">
               {/* Contact Info */}
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
@@ -512,7 +512,7 @@ const DoctorProfile = () => {
                     <span className="text-gray-600">{doctor.availability}</span>
                   </div>
                 </div>
-              </motion.div>
+              </motion.div> */}
 
               {/* Experience */}
               <motion.div
@@ -550,7 +550,7 @@ const DoctorProfile = () => {
               </motion.div>
 
               {/* Awards */}
-              {doctor.awards && doctor.awards.length > 0 && (
+              {/* {doctor.awards && doctor.awards.length > 0 && (
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -568,7 +568,7 @@ const DoctorProfile = () => {
                     ))}
                   </ul>
                 </motion.div>
-              )}
+              )} */}
 
               {/* Book Appointment CTA */}
               <motion.div

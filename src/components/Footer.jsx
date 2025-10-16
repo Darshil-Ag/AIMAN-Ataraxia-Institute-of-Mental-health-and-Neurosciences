@@ -131,14 +131,6 @@ const Footer = () => {
             <ul className="space-y-2 sm:space-y-3">
               <li>
                 <button
-                  onClick={() => handleLinkClick('/services/psychiatry-services')}
-                  className="text-gray-600 hover:text-primary-600 hover:translate-x-1 transition-all duration-200 cursor-pointer text-left text-sm sm:text-base block w-full py-1"
-                >
-                  Psychiatry Services
-                </button>
-              </li>
-              <li>
-                <button
                   onClick={() => handleLinkClick('/services/opd-services')}
                   className="text-gray-600 hover:text-primary-600 hover:translate-x-1 transition-all duration-200 cursor-pointer text-left text-sm sm:text-base block w-full py-1"
                 >
@@ -177,6 +169,14 @@ const Footer = () => {
                   Neurology Services
                   </button>
                 </li>
+              <li>
+                <button
+                  onClick={() => handleLinkClick('/our-services')}
+                  className="text-gray-600 hover:text-primary-600 hover:translate-x-1 transition-all duration-200 cursor-pointer text-left text-sm sm:text-base block w-full py-1"
+                >
+                  Speciality Services
+                </button>
+              </li>
             </ul>
           </div>
 

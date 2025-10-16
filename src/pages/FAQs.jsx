@@ -7,7 +7,6 @@ import {
   Phone,
   Mail,
   Clock,
-  Search,
   Filter,
   AlertTriangle
 } from 'lucide-react'
@@ -15,16 +14,10 @@ import logo from '../photo/logo.png'
 
 const FAQs = () => {
   const [openFAQ, setOpenFAQ] = useState(null)
-  const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
 
   const categories = [
-    { id: 'all', name: 'All FAQs' },
-    { id: 'general', name: 'General' },
-    { id: 'appointments', name: 'Appointments' },
-    { id: 'billing', name: 'Billing' },
-    { id: 'services', name: 'Services' },
-    { id: 'emergency', name: 'Emergency' }
+    { id: 'all', name: 'All FAQs' }
   ]
 
   const faqs = [
@@ -95,10 +88,7 @@ const FAQs = () => {
 
   const filteredFAQs = faqs.filter(faq => {
     const matchesCategory = selectedCategory === 'all' || faq.category === selectedCategory
-    const matchesSearch = faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         faq.answer.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         faq.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
-    return matchesCategory && matchesSearch
+    return matchesCategory
   })
 
   const toggleFAQ = (id) => {
@@ -133,41 +123,6 @@ const FAQs = () => {
         </div>
       </section>
 
-      {/* Search and Filter Section */}
-      <section className="py-8 bg-white border-b">
-        <div className="container-custom">
-          <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
-            {/* Search Bar */}
-            <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-              <input
-                type="text"
-                placeholder="Search FAQs..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-              />
-            </div>
-
-            {/* Category Filter */}
-            <div className="flex flex-wrap gap-2">
-              {categories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => setSelectedCategory(category.id)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                    selectedCategory === category.id
-                      ? 'bg-primary-600 text-white shadow-lg'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {category.name}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* FAQs Section */}
       <section className="section-padding bg-primary-100">
@@ -180,7 +135,7 @@ const FAQs = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              {selectedCategory === 'all' ? 'All FAQs' : categories.find(c => c.id === selectedCategory)?.name}
+              Frequently Asked Questions
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               {filteredFAQs.length} question{filteredFAQs.length !== 1 ? 's' : ''} found
@@ -249,7 +204,7 @@ const FAQs = () => {
                 No FAQs found
               </h3>
               <p className="text-gray-600">
-                Try adjusting your search criteria or category filter.
+                Try adjusting your category filter.
               </p>
             </div>
           )}
