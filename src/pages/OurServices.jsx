@@ -1,0 +1,430 @@
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+import { 
+  Heart, 
+  Brain, 
+  Baby, 
+  Activity, 
+  Eye, 
+  Bone, 
+  Zap, 
+  Shield,
+  ArrowRight,
+  Clock,
+  Users,
+  Phone,
+  CheckCircle,
+  MapPin,
+  Building,
+  AlertTriangle
+} from 'lucide-react'
+import logo from '../photo/logo.png'
+
+const OurServices = () => {
+  const [selectedCategory, setSelectedCategory] = useState('all')
+
+  const categories = [
+    { id: 'all', name: 'All Services' },
+    { id: 'medical', name: 'Medical' },
+    { id: 'surgical', name: 'Surgical' },
+    { id: 'emergency', name: 'Emergency' },
+    { id: 'specialty', name: 'Specialty' }
+  ]
+
+  const services = [
+    {
+      id: 'emergency-mental-health',
+      name: '24/7 Emergency Mental Health Services',
+      category: 'emergency',
+      icon: Zap,
+      description: "Mental health crises can happen at any time. Our emergency services are available round the clock to ensure that help is always within reach. Whether it's a severe panic attack, suicidal ideation, psychotic episode, or sudden neurological complication, our specialized team responds promptly with care, sensitivity, and professionalism.",
+      services: [
+        'Crisis Intervention',
+        'Emergency Psychiatric Care',
+        'Suicide Prevention',
+        'Mental Health Triage',
+        'Emergency Counseling'
+      ],
+      availability: '24/7',
+      color: 'from-red-600 to-red-500',
+      image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
+    },
+    {
+      id: 'opd-services',
+      name: 'OPD (Outpatient Department) Services',
+      category: 'medical',
+      icon: Users,
+      description: 'Our outpatient services provide accessible consultations for individuals seeking psychiatric, neurological, or psychological guidance without hospitalization. Regular follow-ups, counseling sessions, and medication management ensure that progress is monitored and maintained.',
+      services: [
+        'Initial Consultations',
+        'Follow-up Appointments',
+        'Medication Management',
+        'Therapy Sessions',
+        'Assessment Services'
+      ],
+      availability: 'Mon-Fri 9AM-6PM',
+      color: 'from-blue-500 to-cyan-500',
+      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
+    },
+    {
+      id: 'ipd-services',
+      name: 'IPD (Inpatient Department) Services',
+      category: 'medical',
+      icon: Building,
+      description: 'For individuals requiring intensive monitoring, AIMAN provides safe and comfortable inpatient care. Our facilities are designed to be therapeutic and calming, with professional staff available 24/7. Patients benefit from structured routines, therapeutic interventions, and compassionate support throughout their stay.',
+      services: [
+        'Inpatient Psychiatric Care',
+        'Intensive Therapy Programs',
+        'Medication Stabilization',
+        'Crisis Management',
+        'Rehabilitation Support'
+      ],
+      availability: '24/7',
+      color: 'from-green-500 to-teal-500',
+      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
+    },
+    {
+      id: 'deaddiction-rehab',
+      name: 'De-addiction and Rehabilitation Services',
+      category: 'specialty',
+      icon: Shield,
+      description: 'Addiction is not just a physical dependency but also a psychological challenge. Our comprehensive de-addiction programs include medical detoxification, individual and group therapy, relapse prevention strategies, and family counseling. We aim to empower individuals to reclaim control over their lives and restore their sense of dignity.',
+      services: [
+        'Detoxification Programs',
+        'Individual Counseling',
+        'Group Therapy',
+        'Family Support',
+        'Aftercare Planning'
+      ],
+      availability: 'Mon-Sat 8AM-8PM',
+      color: 'from-purple-500 to-indigo-500',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
+    },
+    {
+      id: 'child-adolescent',
+      name: 'Child and Adolescent Mental Health Services',
+      category: 'specialty',
+      icon: Baby,
+      description: 'Children and adolescents face unique challenges in today’s fast-paced world, from academic stress to social pressures and emotional struggles. At AIMAN, our child psychiatry and psychology team specializes in addressing developmental, behavioral, and emotional concerns. Services include ADHD management, autism support, learning disability interventions, and therapy for anxiety and depression in children.',
+      services: [
+        'Child Psychology',
+        'Adolescent Counseling',
+        'Family Therapy',
+        'Behavioral Interventions',
+        'School Support Services'
+      ],
+      availability: 'Mon-Fri 9AM-5PM',
+      color: 'from-pink-500 to-rose-500',
+      image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
+    },
+    {
+      id: 'womens-mental-health',
+      name: 'Women\'s Mental Health Services',
+      category: 'specialty',
+      icon: Heart,
+      description: 'Women often experience specific mental health issues related to hormonal changes, pregnancy, postpartum challenges, and social stressors. Our women-focused services address conditions like postpartum depression, anxiety, trauma, and emotional burnout with specialized care and support.',
+      services: [
+        'Prenatal Mental Health',
+        'Postpartum Support',
+        'Menopause Counseling',
+        'Trauma Therapy',
+        'Hormonal Mental Health'
+      ],
+      availability: 'Mon-Fri 9AM-6PM',
+      color: 'from-pink-600 to-purple-600',
+      image: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
+    },
+    {
+      id: 'geriatric-mental-health',
+      name: 'Geriatric Mental Health Services',
+      category: 'specialty',
+      icon: Users,
+      description: 'As individuals age, they may face neurological disorders such as dementia, Alzheimer’s, or Parkinson’s, alongside emotional struggles like loneliness or depression. AIMAN provides tailored care for elderly patients, emphasizing dignity, comfort, and family involvement.',
+      services: [
+        'Dementia Care',
+        'Depression Treatment',
+        'Anxiety Management',
+        'Memory Care',
+        'Family Support'
+      ],
+      availability: 'Mon-Fri 9AM-5PM',
+      color: 'from-gray-500 to-blue-500',
+      image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
+    },
+    {
+      id: 'clinical-psychology',
+      name: 'Clinical Psychology and Therapy Services',
+      category: 'specialty',
+      icon: Brain,
+      description: 'Therapy is a cornerstone of healing. Our clinical psychology services include comprehensive therapeutic approaches delivered by trained psychologists who create safe, non-judgmental spaces for healing.',
+      services: [
+        'Cognitive Behavioral Therapy (CBT)',
+        'Dialectical Behavior Therapy (DBT)',
+        'Family and Couple Therapy',
+        'Trauma Counseling',
+        'Grief Counseling',
+        'Psycho-oncology Support',
+        'Stress and Anger Management'
+      ],
+      availability: 'Mon-Fri 8AM-8PM',
+      color: 'from-indigo-500 to-purple-500',
+      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
+    },
+    {
+      id: 'sexual-wellness',
+      name: 'Sexual Wellness Services',
+      category: 'specialty',
+      icon: Heart,
+      description: 'Sexual wellness is about maintaining a healthy and satisfying sexual life, understanding your body, and fostering safe, respectful relationships. It includes education, counseling, and support to address concerns, improve intimacy, and promote overall physical and mental well-being.',
+      services: [
+        'Sexual Health Counseling',
+        'Relationship Therapy',
+        'Intimacy Issues',
+        'Sexual Trauma Support',
+        'Couples Counseling'
+      ],
+      availability: 'Mon-Fri 9AM-6PM',
+      color: 'from-rose-500 to-pink-500',
+      image: 'https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
+    },
+    {
+      id: 'home-visit',
+      name: 'Home Visit Services',
+      category: 'specialty',
+      icon: MapPin,
+      description: 'Home visit mental health services bring professional care directly to you, ensuring privacy, comfort, and personalized support. From counseling and therapy to follow-ups and crisis intervention, our experts make mental well-being accessible at your doorstep because emotional health is as important as physical health.',
+      services: [
+        'Home-based Therapy',
+        'Family Counseling',
+        'Medication Management',
+        'Crisis Intervention',
+        'Caregiver Support'
+      ],
+      availability: 'Mon-Sat 9AM-6PM',
+      color: 'from-green-600 to-teal-600',
+      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
+    },
+    {
+      id: 'neurology',
+      name: 'Neurology Services',
+      category: 'medical',
+      icon: Brain,
+      description: 'Our neurology services provide comprehensive diagnosis and treatment for disorders affecting the brain, spinal cord, and nervous system. Our experienced neurologists use advanced diagnostic tools and evidence-based treatments to address conditions such as epilepsy, stroke, Parkinson\'s disease, multiple sclerosis, and other neurological disorders.',
+      services: [
+        'Neurological Consultations',
+        'EEG (Electroencephalogram)',
+        'EMG (Electromyography)',
+        'Nerve Conduction Studies',
+        'Stroke Management',
+        'Epilepsy Treatment',
+        'Movement Disorder Care',
+        'Memory Assessment'
+      ],
+      availability: 'Mon-Fri 9AM-6PM',
+      color: 'from-blue-600 to-indigo-600',
+      image: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80',
+      link: '/services/neurology'
+    }
+  ]
+
+  const filteredServices = selectedCategory === 'all' 
+    ? services 
+    : services.filter(service => service.category === selectedCategory)
+
+  return (
+    <div className="pt-16 relative">
+      {/* Logo Background Watermark */}
+      <div className="fixed top-16 left-0 right-0 bottom-0 flex items-center justify-center pointer-events-none opacity-10 z-0">
+        <img src={logo} alt="AIMAN logo" className="w-96 h-auto" />
+      </div>
+      {/* Hero Section */}
+      <section className="relative py-20 bg-gradient-to-br from-primary-500 via-primary-600 to-secondary-700 text-white">
+        <div className="absolute inset-0 bg-black opacity-10"></div>
+        
+        
+        <div className="relative z-10 container-custom text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              Our Mental Health Services
+            </h1>
+            <p className="text-xl md:text-2xl text-purple-100 max-w-4xl mx-auto">
+              Comprehensive mental health services across all specialties, 
+              delivered with expertise, compassion, and evidence-based care by our dedicated team.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Category Filter */}
+      <section className="py-8 bg-white border-b">
+        <div className="container-custom">
+          <div className="flex flex-wrap justify-center gap-4">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`px-6 py-3 rounded-full font-medium transition-all duration-200 ${
+                  selectedCategory === category.id
+                    ? 'bg-primary-600 text-white shadow-lg'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                {category.name}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section className="section-padding bg-primary-100">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+              {selectedCategory === 'all' ? 'All Mental Health Services' : categories.find(c => c.id === selectedCategory)?.name}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {filteredServices.length} mental health service{filteredServices.length !== 1 ? 's' : ''} available
+            </p>
+          </motion.div>
+
+          <div className="space-y-8">
+            {filteredServices.map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+              >
+                <div className="flex flex-col lg:flex-row">
+                  {/* Service Image */}
+                  <div className="lg:w-1/3 h-64 lg:h-auto">
+                    <img
+                      src={service.image}
+                      alt={service.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  {/* Service Content */}
+                  <div className="lg:w-2/3 p-8">
+                    <div className="flex items-start space-x-4 mb-6">
+                      <div className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                        {React.createElement(service.icon, { className: "w-8 h-8 text-white" })}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                          {service.name}
+                        </h3>
+                        <p className="text-gray-600 text-lg leading-relaxed">
+                          {service.description}
+                        </p>
+                      </div>
+                    </div>
+
+
+                    {/* Service Actions */}
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-end gap-4">
+
+                      <div className="flex space-x-3">
+                        <a href={`/services/${service.id}`} className="btn-outline px-6 py-3 flex items-center space-x-2">
+                          <span>Learn More</span>
+                        </a>
+                        <button className="btn-primary px-6 py-3">
+                          Book Appointment
+                        </button>
+                        <a href="tel:+918800833411" className="px-6 py-3 border border-primary-600 text-primary-600 rounded-lg hover:bg-primary-100 transition-colors duration-200 flex items-center space-x-2">
+                          <Phone className="w-4 h-4" />
+                          <span>Call Now</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Our Services */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+              Why Choose Our Mental Health Services?
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Each service is designed to provide specialized mental health care with 
+              evidence-based treatments and expert mental health professionals.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: CheckCircle,
+                title: 'Expert Specialists',
+                description: 'Board-certified doctors with years of experience in their respective fields'
+              },
+              {
+                icon: Shield,
+                title: 'Advanced Technology',
+                description: 'State-of-the-art equipment and cutting-edge treatment methods'
+              },
+              {
+                icon: Clock,
+                title: 'Quick Access',
+                description: 'Minimal wait times and efficient appointment scheduling'
+              },
+              {
+                icon: Heart,
+                title: 'Patient-Centered',
+                description: 'Personalized care plans tailored to individual patient needs'
+              }
+            ].map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  {React.createElement(feature.icon, { className: "w-8 h-8 text-primary-600" })}
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+export default OurServices
