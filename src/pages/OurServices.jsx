@@ -33,14 +33,65 @@ const OurServices = () => {
 
   const services = [
     {
+      id: 'psychiatry-services',
+      name: 'Psychiatry Services',
+      category: 'medical',
+      icon: Brain,
+      description: 'Comprehensive psychiatric care for mental health conditions including mood disorders, anxiety, psychosis, and other psychiatric conditions.',
+      services: [
+        'Psychiatric Evaluation',
+        'Medication Management',
+        'Psychotherapy',
+        'Crisis Intervention',
+        'Treatment Planning'
+      ],
+      availability: 'Mon-Fri 9AM-6PM',
+      color: 'from-blue-600 to-indigo-600',
+      image: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
+    },
+    {
+      id: 'opd-services',
+      name: 'OPD Services',
+      category: 'medical',
+      icon: Users,
+      description: 'Outpatient consultations for mental health assessments, therapy sessions, and follow-up care.',
+      services: [
+        'Initial Consultations',
+        'Follow-up Appointments',
+        'Therapy Sessions',
+        'Assessment Services',
+        'Medication Management'
+      ],
+      availability: 'Mon-Fri 9AM-6PM',
+      color: 'from-blue-500 to-cyan-500',
+      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
+    },
+    {
+      id: 'ipd-services',
+      name: 'IPD Services',
+      category: 'medical',
+      icon: Building,
+      description: 'Inpatient mental health care with 24/7 monitoring and intensive therapeutic interventions.',
+      services: [
+        'Inpatient Care',
+        'Intensive Therapy',
+        'Crisis Management',
+        'Rehabilitation',
+        'Structured Programs'
+      ],
+      availability: '24/7',
+      color: 'from-green-500 to-teal-500',
+      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
+    },
+    {
       id: 'emergency-mental-health',
-      name: '24/7 Emergency Mental Health Services',
+      name: 'Emergency Services',
       category: 'emergency',
       icon: Zap,
-      description: "Mental health crises can happen at any time. Our emergency services are available round the clock to ensure that help is always within reach. Whether it's a severe panic attack, suicidal ideation, psychotic episode, or sudden neurological complication, our specialized team responds promptly with care, sensitivity, and professionalism.",
+      description: '24/7 emergency mental health services for crisis situations and urgent psychiatric care.',
       services: [
         'Crisis Intervention',
-        'Emergency Psychiatric Care',
+        'Emergency Care',
         'Suicide Prevention',
         'Mental Health Triage',
         'Emergency Counseling'
@@ -50,125 +101,106 @@ const OurServices = () => {
       image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
     },
     {
-      id: 'opd-services',
-      name: 'OPD (Outpatient Department) Services',
-      category: 'medical',
-      icon: Users,
-      description: 'Our outpatient services provide accessible consultations for individuals seeking psychiatric, neurological, or psychological guidance without hospitalization. Regular follow-ups, counseling sessions, and medication management ensure that progress is monitored and maintained.',
+      id: 'clinical-psychology',
+      name: 'Clinical Psychology',
+      category: 'specialty',
+      icon: Heart,
+      description: 'Psychological assessment, therapy, and counseling services for various mental health conditions.',
       services: [
-        'Initial Consultations',
-        'Follow-up Appointments',
-        'Medication Management',
-        'Therapy Sessions',
-        'Assessment Services'
+        'Psychological Assessment',
+        'Individual Therapy',
+        'Group Therapy',
+        'Cognitive Behavioral Therapy',
+        'Counseling Services'
       ],
       availability: 'Mon-Fri 9AM-6PM',
-      color: 'from-blue-500 to-cyan-500',
-      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
+      color: 'from-purple-500 to-indigo-500',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
     },
     {
-      id: 'ipd-services',
-      name: 'IPD (Inpatient Department) Services',
-      category: 'medical',
-      icon: Building,
-      description: 'For individuals requiring intensive monitoring, AIMAN provides safe and comfortable inpatient care. Our facilities are designed to be therapeutic and calming, with professional staff available 24/7. Patients benefit from structured routines, therapeutic interventions, and compassionate support throughout their stay.',
+      id: 'neurology',
+      name: 'Neurology Services',
+      category: 'specialty',
+      icon: Brain,
+      description: 'Neurological assessment and treatment for brain, spinal cord, and nervous system disorders.',
       services: [
-        'Inpatient Psychiatric Care',
-        'Intensive Therapy Programs',
-        'Medication Stabilization',
-        'Crisis Management',
-        'Rehabilitation Support'
+        'Neurological Assessment',
+        'Brain Disorder Treatment',
+        'Neurological Rehabilitation',
+        'Cognitive Assessment',
+        'Neurological Monitoring'
       ],
-      availability: '24/7',
-      color: 'from-green-500 to-teal-500',
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
+      availability: 'Mon-Fri 9AM-6PM',
+      color: 'from-indigo-600 to-purple-600',
+      image: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
     },
     {
       id: 'deaddiction-rehab',
-      name: 'De-addiction and Rehabilitation Services',
+      name: 'Deaddiction Services',
       category: 'specialty',
       icon: Shield,
-      description: 'Addiction is not just a physical dependency but also a psychological challenge. Our comprehensive de-addiction programs include medical detoxification, individual and group therapy, relapse prevention strategies, and family counseling. We aim to empower individuals to reclaim control over their lives and restore their sense of dignity.',
+      description: 'Comprehensive addiction treatment and rehabilitation programs for substance abuse recovery.',
       services: [
-        'Detoxification Programs',
-        'Individual Counseling',
-        'Group Therapy',
-        'Family Support',
-        'Aftercare Planning'
+        'Detoxification',
+        'Addiction Counseling',
+        'Rehabilitation Programs',
+        'Relapse Prevention',
+        'Family Support'
       ],
       availability: 'Mon-Sat 8AM-8PM',
-      color: 'from-purple-500 to-indigo-500',
+      color: 'from-orange-500 to-red-500',
       image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
     },
     {
       id: 'child-adolescent',
-      name: 'Child and Adolescent Mental Health Services',
+      name: 'Child Services',
       category: 'specialty',
       icon: Baby,
-      description: 'Children and adolescents face unique challenges in today’s fast-paced world, from academic stress to social pressures and emotional struggles. At AIMAN, our child psychiatry and psychology team specializes in addressing developmental, behavioral, and emotional concerns. Services include ADHD management, autism support, learning disability interventions, and therapy for anxiety and depression in children.',
+      description: 'Specialized mental health services for children and adolescents with developmental and behavioral concerns.',
       services: [
         'Child Psychology',
         'Adolescent Counseling',
         'Family Therapy',
         'Behavioral Interventions',
-        'School Support Services'
+        'School Support'
       ],
       availability: 'Mon-Fri 9AM-5PM',
       color: 'from-pink-500 to-rose-500',
       image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
     },
     {
+      id: 'geriatric-mental-health',
+      name: 'Geriatric Services',
+      category: 'specialty',
+      icon: Users,
+      description: 'Mental health services for elderly patients dealing with age-related mental health conditions.',
+      services: [
+        'Geriatric Assessment',
+        'Dementia Care',
+        'Depression Treatment',
+        'Cognitive Therapy',
+        'Family Counseling'
+      ],
+      availability: 'Mon-Fri 9AM-5PM',
+      color: 'from-gray-600 to-gray-700',
+      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
+    },
+    {
       id: 'womens-mental-health',
-      name: 'Women\'s Mental Health Services',
+      name: 'Women Services',
       category: 'specialty',
       icon: Heart,
-      description: 'Women often experience specific mental health issues related to hormonal changes, pregnancy, postpartum challenges, and social stressors. Our women-focused services address conditions like postpartum depression, anxiety, trauma, and emotional burnout with specialized care and support.',
+      description: 'Specialized mental health services for women addressing gender-specific mental health concerns.',
       services: [
         'Prenatal Mental Health',
         'Postpartum Support',
         'Menopause Counseling',
         'Trauma Therapy',
-        'Hormonal Mental Health'
+        'Women\'s Wellness'
       ],
       availability: 'Mon-Fri 9AM-6PM',
       color: 'from-pink-600 to-purple-600',
       image: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
-    },
-    {
-      id: 'geriatric-mental-health',
-      name: 'Geriatric Mental Health Services',
-      category: 'specialty',
-      icon: Users,
-      description: 'As individuals age, they may face neurological disorders such as dementia, Alzheimer’s, or Parkinson’s, alongside emotional struggles like loneliness or depression. AIMAN provides tailored care for elderly patients, emphasizing dignity, comfort, and family involvement.',
-      services: [
-        'Dementia Care',
-        'Depression Treatment',
-        'Anxiety Management',
-        'Memory Care',
-        'Family Support'
-      ],
-      availability: 'Mon-Fri 9AM-5PM',
-      color: 'from-gray-500 to-blue-500',
-      image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
-    },
-    {
-      id: 'clinical-psychology',
-      name: 'Clinical Psychology and Therapy Services',
-      category: 'specialty',
-      icon: Brain,
-      description: 'Therapy is a cornerstone of healing. Our clinical psychology services include comprehensive therapeutic approaches delivered by trained psychologists who create safe, non-judgmental spaces for healing.',
-      services: [
-        'Cognitive Behavioral Therapy (CBT)',
-        'Dialectical Behavior Therapy (DBT)',
-        'Family and Couple Therapy',
-        'Trauma Counseling',
-        'Grief Counseling',
-        'Psycho-oncology Support',
-        'Stress and Anger Management'
-      ],
-      availability: 'Mon-Fri 8AM-8PM',
-      color: 'from-indigo-500 to-purple-500',
-      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
     },
     {
       id: 'sexual-wellness',
@@ -203,27 +235,6 @@ const OurServices = () => {
       availability: 'Mon-Sat 9AM-6PM',
       color: 'from-green-600 to-teal-600',
       image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80'
-    },
-    {
-      id: 'neurology',
-      name: 'Neurology Services',
-      category: 'medical',
-      icon: Brain,
-      description: 'Our neurology services provide comprehensive diagnosis and treatment for disorders affecting the brain, spinal cord, and nervous system. Our experienced neurologists use advanced diagnostic tools and evidence-based treatments to address conditions such as epilepsy, stroke, Parkinson\'s disease, multiple sclerosis, and other neurological disorders.',
-      services: [
-        'Neurological Consultations',
-        'EEG (Electroencephalogram)',
-        'EMG (Electromyography)',
-        'Nerve Conduction Studies',
-        'Stroke Management',
-        'Epilepsy Treatment',
-        'Movement Disorder Care',
-        'Memory Assessment'
-      ],
-      availability: 'Mon-Fri 9AM-6PM',
-      color: 'from-blue-600 to-indigo-600',
-      image: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80',
-      link: '/services/neurology'
     }
   ]
 

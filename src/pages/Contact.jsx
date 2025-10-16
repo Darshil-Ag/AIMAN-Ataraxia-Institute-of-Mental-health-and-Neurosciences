@@ -41,8 +41,7 @@ const Contact = () => {
       icon: Phone,
       title: 'Phone Numbers',
       details: [
-        'Main: +91 88008 33411',
-        'Emergency: 108'
+        'Main: +91 88008 33411'
       ],
       color: 'from-blue-500 to-cyan-500'
     },
@@ -59,7 +58,6 @@ const Contact = () => {
       icon: Clock,
       title: 'Operating Hours',
       details: [
-        'Emergency: 24/7',
         'Outpatient: Mon-Fri 8AM-8PM',
         'Weekend: Sat-Sun 9AM-6PM'
       ],
@@ -81,36 +79,33 @@ const Contact = () => {
   const facilities = [
     { icon: Square, name: 'Free Parking', description: 'Ample parking space available' },
     { icon: Wifi, name: 'Free WiFi', description: 'High-speed internet throughout the hospital' },
-    { icon: Coffee, name: 'Cafeteria', description: 'Fresh meals and beverages available' },
-    { icon: Heart, name: 'Pharmacy', description: 'On-site pharmacy for prescriptions' },
-    { icon: Car, name: 'Valet Service', description: 'Complimentary valet parking' },
-    { icon: Bus, name: 'Shuttle Service', description: 'Free shuttle from nearby areas' }
+    { icon: Heart, name: 'Pharmacy', description: 'On-site pharmacy for prescriptions' }
   ]
 
   const transportation = [
     {
       icon: Car,
       title: 'By Car',
-      description: 'Located off Highway 101, exit 15. Free parking available.',
-      details: ['GPS: 123 Healthcare Avenue', 'Parking: Free for patients and visitors']
+      description: 'Conveniently located off Main Sector Road.',
+      details: ['Golf Course Road Extension', 'Sohna Road Connection']
     },
     {
       icon: Bus,
       title: 'By Bus',
-      description: 'Multiple bus routes serve our location.',
-      details: ['Route 15: Healthcare District', 'Route 22: Medical Center', 'Route 45: Hospital Loop']
+      description: 'Multiple bus routes serve Sector 46.',
+      details: ['HUDA City Centre Metro Bus Stop (2 km)']
     },
     {
       icon: Train,
       title: 'By Train',
-      description: 'Nearest train station is 2 miles away.',
-      details: ['Medical District Station', 'Free shuttle service available', '15-minute ride to hospital']
+      description: 'Gurugram Railway Station, 7 km away.',
+      details: ['HUDA City Centre Metro (2 km)']
     },
     {
       icon: Plane,
       title: 'By Air',
-      description: 'International airport is 30 minutes away.',
-      details: ['City International Airport', 'Taxi/Uber available', 'Helicopter landing pad on-site']
+      description: 'Indira Gandhi International Airport, 30 minutes away.',
+      details: ['Taxi/Uber available']
     }
   ]
 
@@ -207,31 +202,13 @@ Thank you!`
               Contact Us
             </h1>
             <p className="text-xl md:text-2xl text-purple-100 max-w-4xl mx-auto">
-              Get in touch with us for appointments, inquiries, or emergency care. 
-              We're here to help you 24/7.
+              Get in touch with us for appointments, inquiries, or consultations. 
+              We're here to help you.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Emergency Banner */}
-      <section className="py-6 bg-red-600 text-white">
-        <div className="container-custom text-center">
-          <div className="flex items-center justify-center space-x-4">
-            <Zap className="w-8 h-8" />
-            <div>
-              <h2 className="text-2xl font-bold">Medical Emergency?</h2>
-              <p className="text-red-100">Call 108 immediately or visit our emergency department</p>
-            </div>
-            <a
-              href="tel:108"
-              className="bg-white text-red-600 font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200"
-            >
-              Call 108
-            </a>
-          </div>
-        </div>
-      </section>
 
       {/* Contact Information */}
       <section className="section-padding bg-white">
@@ -473,25 +450,6 @@ Thank you!`
                 </div>
               </div>
 
-              {/* Department Contacts */}
-              <div className="card">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                  Department Contacts
-                </h3>
-                <div className="space-y-3">
-                  {departments.map((dept, index) => (
-                    <div key={index} className="flex items-center justify-between p-3 bg-primary-100 rounded-lg">
-                      <span className="font-medium text-gray-800">{dept.name}</span>
-                      <a
-                        href={`tel:${dept.phone}`}
-                        className="text-primary-600 hover:text-primary-700 font-medium"
-                      >
-                        {dept.phone}
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </motion.div>
           </div>
         </div>

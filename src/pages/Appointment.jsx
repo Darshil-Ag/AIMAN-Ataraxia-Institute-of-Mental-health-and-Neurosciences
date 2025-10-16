@@ -39,24 +39,24 @@ const Appointment = () => {
   const doctors = [
     { 
       id: 'piyush', 
-      name: 'Dr. Piyush Verma', 
-      specialty: 'Psychiatrist', 
+      name: 'Dr Piyush Verma', 
+      specialty: 'Senior Consultant Psychiatrist', 
       experience: '11+', 
       email: 'piyush.verma@aimanhospital.com',
       phone: '+91 98765 43210',
-      qualifications: 'MBBS, MD Psychiatry, PGIMER Rohtak',
+      qualifications: 'MBBS, MD (Psychiatry), PGDMLE',
       description: 'Dr Piyush believe that mental health is for all. As a psychiatrist of more than 11 years of clinical expertise, he has deep compassion to support individuals and their family through their mental health journey.',
       image: piyushImg,
       available: true
     },
     { 
       id: 'sangeetha', 
-      name: 'Dr. Sangeeta Hatila', 
-      specialty: 'Psychiatrist', 
+      name: 'Dr Sangeeta Hatila', 
+      specialty: 'Consultant Psychiatrist', 
       experience: '8+', 
       email: 'sangeetha.hatila@aimanhospital.com',
       phone: '+91 98765 43211',
-      qualifications: 'MBBS, MD Psychiatry, SMS Medical College',
+      qualifications: 'MBBS, MD (Psychiatry)',
       description: 'Dr Sangeeta is dedicated and compassionate psychiatrist with 8 years of extensive experience in diagnosing and treating wide range of mental health conditions.',
       image: sangeethaImg,
       available: true
@@ -113,7 +113,10 @@ const Appointment = () => {
 
   const timeSlots = [
     '09:00 AM', '09:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM',
-    '02:00 PM', '02:30 PM', '03:00 PM', '03:30 PM', '04:00 PM', '04:30 PM'
+    '12:00 PM', '12:30 PM', '01:00 PM', '01:30 PM', '02:00 PM', '02:30 PM',
+    '03:00 PM', '03:30 PM', '04:00 PM', '04:30 PM', '05:00 PM', '05:30 PM',
+    '06:00 PM', '06:30 PM', '07:00 PM', '07:30 PM', '08:00 PM', '08:30 PM',
+    '09:00 PM'
   ]
 
   const onSubmit = (data) => {
@@ -270,20 +273,6 @@ Please confirm this appointment. Thank you!`
         </div>
       </section>
 
-      {/* Emergency Notice */}
-      <section className="bg-red-100 border-l-4 border-red-500 p-4">
-        <div className="container-custom">
-          <div className="flex items-center">
-            <AlertCircle className="w-6 h-6 text-red-500 mr-3" />
-            <div>
-              <h3 className="text-lg font-semibold text-red-800">Emergency Notice</h3>
-              <p className="text-red-700">
-                For medical emergencies, please call our emergency line immediately at <strong>+91 98765 43210</strong> or visit our emergency department.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Appointment Form */}
       <section className="section-padding bg-white">
@@ -368,22 +357,17 @@ Please confirm this appointment. Thank you!`
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Preferred Time *
                       </label>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                        {timeSlots.map((time) => (
-                          <button
-                            key={time}
-                            type="button"
-                            className={`px-4 py-2 rounded-lg border transition-all duration-200 ${
-                              selectedTime === time
-                                ? 'border-primary-500 bg-primary-50 text-primary-700'
-                                : 'border-gray-300 hover:border-primary-300'
-                            }`}
-                            onClick={() => setSelectedTime(time)}
-                          >
-                            {time}
-                          </button>
-                        ))}
-                      </div>
+                      <input
+                        type="text"
+                        placeholder="e.g., 10:30 AM, 2:15 PM, 6:45 PM"
+                        value={selectedTime}
+                        onChange={(e) => setSelectedTime(e.target.value)}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                        required
+                      />
+                      <p className="text-xs text-gray-500 mt-1">
+                        Please enter your preferred time (e.g., 10:30 AM, 2:15 PM, 6:45 PM)
+                      </p>
                     </div>
 
                     {/* Patient Information */}
@@ -484,78 +468,85 @@ Please confirm this appointment. Thank you!`
 
               {/* Sidebar */}
               <div className="space-y-6">
-                {/* Contact Info */}
+
+                {/* Manual/Guide Section */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
                   viewport={{ once: true }}
                   className="card"
                 >
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">Contact Information</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-center">
-                      <Phone className="w-5 h-5 text-primary-600 mr-3" />
-                      <span className="text-gray-600">+91 98765 43210</span>
+                  <h3 className="text-xl font-bold text-gray-800 mb-6">Appointment Booking Manual</h3>
+                  
+                  <div className="space-y-6">
+                    {/* Step 1 */}
+                    <div className="border-l-4 border-primary-500 pl-4">
+                      <h4 className="text-lg font-semibold text-gray-800 mb-2">Step 1: Select Your Doctor</h4>
+                      <p className="text-gray-600 text-sm">
+                        Choose from our team of experienced mental health professionals. Each doctor specializes in different areas of mental health care.
+                      </p>
                     </div>
-                    <div className="flex items-center">
-                      <Mail className="w-5 h-5 text-primary-600 mr-3" />
-                      <span className="text-gray-600">info@aimanhospital.com</span>
-                    </div>
-                    <div className="flex items-center">
-                      <MapPin className="w-5 h-5 text-primary-600 mr-3" />
-                      <span className="text-gray-600">AIMAN Hospital, Gurgaon</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Clock className="w-5 h-5 text-primary-600 mr-3" />
-                      <span className="text-gray-600">24/7 Emergency Services</span>
-                    </div>
-                  </div>
-                </motion.div>
 
-                {/* Emergency Contact */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  viewport={{ once: true }}
-                  className="card bg-red-50 border-red-200"
-                >
-                  <h3 className="text-xl font-bold text-red-800 mb-4">Emergency Contact</h3>
-                  <p className="text-red-700 mb-4">
-                    For medical emergencies, call our emergency line immediately.
-                  </p>
-                  <div className="flex items-center">
-                    <Phone className="w-5 h-5 text-red-600 mr-3" />
-                    <span className="text-red-800 font-semibold">+91 98765 43210</span>
-                  </div>
-                </motion.div>
+                    {/* Step 2 */}
+                    <div className="border-l-4 border-primary-500 pl-4">
+                      <h4 className="text-lg font-semibold text-gray-800 mb-2">Step 2: Choose Your Date</h4>
+                      <p className="text-gray-600 text-sm">
+                        Select a convenient date for your appointment. We recommend booking at least 24 hours in advance.
+                      </p>
+                    </div>
 
-                {/* Available Doctors */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  viewport={{ once: true }}
-                  className="card"
-                >
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">Our Experts</h3>
-                  <div className="space-y-3">
-                    {doctors.slice(0, 3).map((doctor) => (
-                      <div key={doctor.id} className="flex items-center space-x-3">
-                        <img
-                          src={doctor.image}
-                          alt={doctor.name}
-                          className="w-10 h-10 rounded-full object-cover"
-                        />
-                        <div>
-                          <h4 className="font-semibold text-gray-800 text-sm">{doctor.name}</h4>
-                          <p className="text-xs text-primary-600">{doctor.specialty}</p>
+                    {/* Step 3 */}
+                    <div className="border-l-4 border-primary-500 pl-4">
+                      <h4 className="text-lg font-semibold text-gray-800 mb-2">Step 3: Pick Your Time</h4>
+                      <p className="text-gray-600 text-sm">
+                        Choose from available time slots. Our clinic operates from 9:00 AM to 9:00 PM, Monday through Saturday.
+                      </p>
+                    </div>
+
+                    {/* Step 4 */}
+                    <div className="border-l-4 border-primary-500 pl-4">
+                      <h4 className="text-lg font-semibold text-gray-800 mb-2">Step 4: Fill Your Details</h4>
+                      <p className="text-gray-600 text-sm">
+                        Provide your personal information, contact details, and a brief description of your concerns. This helps us prepare for your visit.
+                      </p>
+                    </div>
+
+                    {/* Important Notes */}
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                      <h4 className="text-lg font-semibold text-blue-800 mb-3">Important Notes</h4>
+                      <ul className="space-y-2 text-sm text-blue-700">
+                        <li className="flex items-start">
+                          <span className="text-blue-500 mr-2">•</span>
+                          <span>Please arrive 15 minutes before your scheduled appointment time</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-blue-500 mr-2">•</span>
+                          <span>Bring a valid ID and any previous medical records</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-blue-500 mr-2">•</span>
+                          <span>If you need to reschedule, please call us at least 2 hours in advance</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-blue-500 mr-2">•</span>
+                          <span>All appointments are confidential and secure</span>
+                        </li>
+                      </ul>
                         </div>
+
+                    {/* Contact Information */}
+                    <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                      <h4 className="text-lg font-semibold text-gray-800 mb-3">Need Help?</h4>
+                      <div className="space-y-2 text-sm text-gray-600">
+                        <p><strong>Phone:</strong> +91 88008 33411</p>
+                        <p><strong>Email:</strong> info@aimanhealth.com</p>
+                        <p><strong>Hours:</strong> Monday - Saturday, 9:00 AM - 9:00 PM</p>
                       </div>
-                    ))}
+                    </div>
                   </div>
                 </motion.div>
+
               </div>
             </div>
           </div>

@@ -38,11 +38,16 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20 lg:h-24 w-full">
           {/* Left: Logo */}
           <div className="flex items-center flex-shrink-0">
-            <Link to="/" className="flex items-center space-x-4">
-              <img src={frontLogo} alt="AIMAN" className="w-14 h-14 lg:w-16 lg:h-16 rounded-xl object-cover shadow-lg border-2 border-white/20" />
-              <span className="text-2xl lg:text-3xl font-bold text-primary-600 drop-shadow-lg">
-                AIMAN
-              </span>
+            <Link to="/" className="flex items-center space-x-3">
+              <img src={frontLogo} alt="AIMAN" className="w-12 h-12 lg:w-14 lg:h-14 rounded-xl object-cover shadow-lg" />
+              <div className="flex flex-col">
+                <span className="text-xl lg:text-2xl font-bold text-primary-600">
+                  AIMAN
+                </span>
+                <span className="text-xs text-gray-500 font-medium hidden lg:block max-w-48">
+                  Ataraxia Institute of Mental health and Neurosciences
+                </span>
+              </div>
             </Link>
           </div>
 

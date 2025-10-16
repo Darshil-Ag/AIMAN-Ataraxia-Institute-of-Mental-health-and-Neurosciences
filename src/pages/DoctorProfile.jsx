@@ -591,7 +591,7 @@ const DoctorProfile = () => {
                     className="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold px-6 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center justify-center text-lg hover:scale-105 transform"
                   >
                     <Calendar className="w-5 h-5 mr-2" />
-                    Book with {doctor.name.split(' ')[1]}
+                    Book with {doctor.name.includes('Akshita') || doctor.name.includes('Keshav') ? 'Miss' : 'Dr.'} {doctor.name.split(' ')[1]}
                   </Link>
                 </div>
               </motion.div>
