@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Menu, X, Phone } from 'lucide-react'
-import frontLogo from '../photo/front_logo.png'
+import transparentLogo from '../photo/transparent_logo.png'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -39,7 +39,7 @@ const Navbar = () => {
           {/* Left: Logo */}
           <div className="flex items-center flex-shrink-0">
             <Link to="/" className="flex items-center space-x-3">
-              <img src={frontLogo} alt="AIMAN" className="w-12 h-12 lg:w-14 lg:h-14 rounded-xl object-cover shadow-lg" />
+              <img src={transparentLogo} alt="AIMAN" className="w-16 h-16 lg:w-20 lg:h-20 object-contain" />
               <div className="flex flex-col">
                 <span className="text-xl lg:text-2xl font-bold text-primary-600">
                   AIMAN

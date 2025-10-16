@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Heart, Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react'
-import footerLogo from '../photo/footer_logo.png'
+import transparentLogo from '../photo/transparent_logo.png'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -53,21 +53,23 @@ const Footer = () => {
           {/* Column 1: Big Logo */}
           <div className="flex flex-col items-center justify-center">
             <div className="w-56 h-40 sm:w-64 sm:h-48 lg:w-72 lg:h-56 xl:w-80 xl:h-64">
-              <img src={footerLogo} alt="AIMAN Logo" className="w-full h-full object-contain hover:scale-105 transition-transform duration-300" />
+              <img src={transparentLogo} alt="AIMAN Logo" className="w-full h-full object-contain hover:scale-105 transition-transform duration-300" />
             </div>
           </div>
 
           {/* Column 2: Hospital Info */}
-          <div className="space-y-4 sm:space-y-6 flex flex-col ml-4 sm:ml-6 lg:ml-8">
-            <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4">
-              Ataraxia Institute of Mental health and Neurosciences
+          <div className="space-y-4 sm:space-y-6 flex flex-col">
+            <h3 className="text-lg sm:text-xl font-semibold border-b border-gray-300 pb-2 text-gray-800">
+              About AIMAN
             </h3>
-            <p className="text-primary-600 font-bold text-sm sm:text-base leading-relaxed mb-4">
-              Mental Health For All
-            </p>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              "At AIMAN, we don't just provide treatment. We provide hope. We provide a voice. We provide a safe space. Most importantly, we provide healing."
-            </p>
+            <div className="space-y-3">
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                Ataraxia Institute of Mental health and Neurosciences
+              </p>
+              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed italic">
+                "We don't just provide treatment. We provide hope, voice, safe space, and healing."
+              </p>
+            </div>
           </div>
 
           {/* Column 3: Quick Links */}
