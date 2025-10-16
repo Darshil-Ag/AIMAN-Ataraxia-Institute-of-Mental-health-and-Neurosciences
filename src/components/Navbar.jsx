@@ -44,7 +44,7 @@ const Navbar = () => {
                 <span className="text-xl lg:text-2xl font-bold text-primary-600">
                   AIMAN
                 </span>
-                <span className="text-xs text-gray-500 font-medium hidden lg:block max-w-48">
+                <span className="text-xs text-gray-500 font-medium block max-w-48">
                   Ataraxia Institute of Mental health and Neurosciences
                 </span>
               </div>
